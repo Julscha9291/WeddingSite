@@ -1,0 +1,408 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>Anna & Max</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'ring.ico' %}" type="image/x-icon">
+
+
+
+    <style>
+        body {
+            background-image: url('{% static 'img/t1.jpg' %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Vidaloka', serif;
+            color: #07575B;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-image: url('{% static 'img/bild2.jpeg' %}');
+            background-size: cover;
+            background-position: top center; 
+            background-position-y: 70%;
+            color: #003B46;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            font-family: 'Vidaloka', serif; 
+        }
+        .header h1 {
+            font-size: 70px; /* Vergrößere die Schriftgröße */
+            margin-bottom: 20px;
+            color: #003B46;
+            font-family: 'Vidaloka', serif;
+            display: inline-block; /* Damit die Schrift in der Mitte bleibt */
+        }
+
+        .line-container {
+            display: flex;
+            justify-content: flex-end; /* Ändere die Ausrichtung zu flex-end */
+            align-items: center;
+            width: 80%; 
+            color: #003B46;
+        }
+        
+        .line {
+            width: 75%;
+            height: 2px;
+            border-style: solid;
+            border-image: linear-gradient(to center, white 50%, transparent 50%) 1;
+        }
+        .hearts {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .hearts span {
+            margin: 0 10px;
+        }
+        .date {
+            font-size: 36px;
+        }
+
+        main {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label, input, select {
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+            color: #003B46;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #07575B;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003B46;;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+        .section {
+            padding: 50px 0; /* Hier kannst du den Abstand anpassen */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li::before {
+            content: "\2022";  /* Füge den Bullet Point hinzu */
+            color: transparent; /* Mache den Bullet Point transparent */
+            display: inline-block;
+            width: 1em; /* Abstand zwischen Bullet Point und Text */
+            margin-left: -1em; /* Korrigiere den Abstand */
+        }
+
+        .container h2,
+        .container p,
+        .container ul {
+            color: #003B46; /* Hier kannst du die Schriftfarbe anpassen */
+        }
+
+        .navbar-nav .nav-link {
+            color: #003B46 !important; /* !important überschreibt andere Stile */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Staple Elemente in einer Spalte */
+            align-items: center; /* Zentriere Elemente horizontal */
+            justify-content: center; /* Zentriere Elemente vertikal */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Media Query für Smartphones */
+
+@media (max-width: 767px) {
+    .header {
+        padding: 50px 0; /* Verringere den oberen und unteren Abstand im Header */
+        background-position-y: 50%; /* Setze die vertikale Position des Hintergrundbilds in der Mitte */
+    }
+
+    .header h1 {
+        font-size: 2em; /* Verkleinere die Schriftgröße für den Header-Titel */
+        margin-bottom: 10px; /* Verkleinere den unteren Abstand */
+    }
+
+    .hearts {
+        font-size: 16px; /* Verkleinere die Herzchen */
+        margin: 10px 0;
+    }
+
+    .date {
+        font-size: 24px; /* Verkleinere die Schriftgröße des Datums */
+    }
+
+    .section {
+        padding: 30px 0; /* Verringere den Abstand in den Abschnitten */
+    }
+
+    .container p {
+        font-size: 1em; /* Verkleinere den Text innerhalb der Container */
+        margin-bottom: 10px;
+    }
+
+    ul {
+        font-size: 1em; /* Verkleinere den Text innerhalb der Listen */
+    }
+
+    iframe {
+        max-width: 100%; /* Sorge dafür, dass die Karte nicht breiter als der Container ist */
+        height: auto; /* Skaliere die Höhe entsprechend */
+    }
+
+    /* Setze den Text in der Navbar auf eine angemessene Größe */
+    .navbar-nav .nav-link {
+        font-size: 1em !important;
+    }
+
+    /* Optional: Verkleinere den Platz zwischen den Navbar-Links */
+    .navbar-nav .nav-item {
+        margin: 0 5px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <script>
+        // Setze das Hochzeitsdatum (Jahr, Monat (0-basiert), Tag, Stunde, Minute, Sekunde)
+        var weddingDate = new Date(2024, 0, 1, 12, 0, 0); 
+    
+        function updateCountdown() {
+            var now = new Date();
+            var timeRemaining = weddingDate - now;
+    
+            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+            var countdownElement = document.getElementById("countdown-timer");
+            countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+            if (timeRemaining <= 0) {
+                countdownElement.innerHTML = "Die Hochzeit ist jetzt!";
+            }
+        }
+        // Aktualisiere den Countdown alle 1 Sekunde
+        setInterval(updateCountdown, 1000);
+    </script>
+
+
+    <div class="header">
+        <h1>Anna & Max</h1>
+        <div class="line-container">
+            <div class="line"></div>
+        </div>
+        <div class="hearts">
+            <span>&#10084;</span><span>&#10084;</span><span>&#10084;</span>
+        </div>
+        <div class="date">
+            01. Januar 2024
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent justify-content-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#info">Hochzeitsinfos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#location">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#kontakt">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#countdown">Countdown</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Galerie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#vote">Teilnahme</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+    <main>
+
+            <!-- Inhalt der Seite -->
+         <section id="info" class="section">
+                <div class="py-5">
+                    <div class="row">
+                        <div class="container-fluid text-center">
+                            <h2>Wir heiraten!</h2>
+                            <p>Hier findest du wichtige Informationen zur Hochzeit. Hier findest du wichtige Informationen zur Hochzeit. Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                            </p>
+                            <h2>Wichtige Informationen</h2>
+                        <p>Hier findest du wichtige Informationen zur Hochzeit.</p>
+                        <ul>
+                            <li>Datum: 01. Januar 2023</li>
+                            <li>Ort: Musterkirche Musterstadt</li>
+                            <li>Uhrzeit: 12.00 Uhr</li>
+                            <li>Dresscode: Egal</li>
+                            <li>Hinweis: Bitte ohne Kinder</li>
+                            <!-- Weitere Informationen hier einfügen -->
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="location" class="section">
+                <div class="container-fluid text-center">
+                    <h2>Location</h2>
+                    <p> Wir feiern in BLABLA. Diese Location hat Platz für 23838 Besucher. 
+                        Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                                Hier findest du wichtige Informationen zur Hochzeit.
+                        Hier findest du unsere Location:</p>
+                    <!-- Hier füge den eingebetteten Karten-Code ein -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.4034522539337!2d7.480501076419991!3d51.50581381081948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b91769a19995fd%3A0x549ec0c1736ed3c7!2sVon-den-Berken-Stra%C3%9Fe%203b%2C%2044141%20Dortmund!5e0!3m2!1sde!2sde!4v1694353483216!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            <!-- Hier kommt der Inhalt für "Infos" hin -->
+             </section>
+
+         <section id="kontakt" class="section">
+            <div class="container-fluid text-center">
+                <div class="row">
+                    <div class="container-fluid text-center">
+                        <h2>Kontakt</h2>
+                        <p>Hast du Fragen oder benötigst weitere Informationen? Kontaktiere uns gerne!</p>
+                        <ul>
+                            <li>Email: kontakt@hochzeit.com</li>
+                            <li>Telefon: 01234 567890</li>
+                            <!-- Weitere Kontaktinformationen hier einfügen -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </section>
+
+         <section id="countdown" class="section">
+            <div class="container-fluid text-center">
+                <div class="row">
+                    <div class="container-fluid text-center">
+                            
+                                <h2>Countdown bis zur Hochzeit</h2>
+                                <div id="countdown-timer"></div>
+                    </div>  
+                </div>
+            </div>
+         </section>
+
+     
+
+         <section id="vote" class="section">
+            <div class="container-fluid">
+                <h2>Abstimmung</h2>
+                <p>Bitte gib an, ob du an unserer Hochzeit teilnehmen wirst:</p>
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
+                    <label for="name">Dein Vor- und Nachname:</label>
+                    <input type="text" id="name" name="name" required><br>
+                
+                    <label for="attendance">Nimmst du teil?</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="Ich nehme teil">Ich nehme teil</option>
+                        <option value="Ich nehme nicht teil">Ich nehme nicht teil</option>
+                    </select><br>
+                
+                    <label for="guests">Anzahl der Personen:</label>
+                    <input type="number" id="guests" name="guests" min="0" required><br>
+                
+                    <button type="submit">Absenden</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <!-- Hier kommt der Inhalt für "Galerie" hin -->
+             </section>
+         <script>
+                document.getElementById('attendance').addEventListener('change', function() {
+                    var guestsInput = document.getElementById('guests');
+                    if (this.value === 'Ich nehme nicht teil') {
+                        guestsInput.disabled = true;
+                    } else {
+                        guestsInput.disabled = false;
+                    }
+                });
+        </script>
+    </main>
+
+    <footer>
+        <p>Wir freuen uns auf dich!</p>
+    </footer>
+       <!-- Bootstrap JS und jQuery -->
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

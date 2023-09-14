@@ -1,0 +1,159 @@
+<!-- star.html -->
+{% load static %} 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="{% static 'ring.ico' %}" type="image/x-icon">
+
+    <style>
+        body {
+            background-image: url('{% static 'img/t1.jpg' %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Vidaloka', serif;
+            color: #07575B;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -80%);
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.1);
+            z-index: 2; /* Stellt sicher, dass der Container über dem transparenten Hintergrund liegt */
+        }
+
+        .header {
+            background-image:url('{% static 'img/bild2.jpeg' %}');
+            background-size: cover;
+            background-position: top center; 
+            background-position-y: 70%;
+            color: #003B46;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            font-family: 'Vidaloka', serif; 
+        }
+        .header h1 {
+            font-size: 70px; /* Vergrößere die Schriftgröße */
+            margin-bottom: 20px;
+            color: #003B46;
+            font-family: 'Vidaloka', serif;
+            display: inline-block; /* Damit die Schrift in der Mitte bleibt */
+        }
+
+        .button-container {
+            text-align: center; /* Zentriert den Button */
+        }
+
+
+        .button.button-primary {
+            padding: 10px 20px;
+            background-color: #07575B;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            display: inline-block; /* Mache den Button zu einem inline-Block-Element */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .button.button-primary:hover {
+            background-color: #003B46;;
+        }
+
+        .container h2,
+        .container h1,
+        .container p,
+        .container ul {
+            color: #003B46; /* Hier kannst du die Schriftfarbe anpassen */
+        }
+
+       
+
+        @media (max-width: 767px) {
+            .header {
+                padding: 50px 0; /* Verringere den oberen und unteren Abstand im Header */
+                background-position-y: 50%; /* Setze die vertikale Position des Hintergrundbilds in der Mitte */
+            }
+        
+            .header h1 {
+                font-size: 2em; /* Verkleinere die Schriftgröße für den Header-Titel */
+                margin-bottom: 10px; /* Verkleinere den unteren Abstand */
+            }
+        
+            .hearts {
+                font-size: 16px; /* Verkleinere die Herzchen */
+                margin: 10px 0;
+            }
+        
+            .date {
+                font-size: 24px; /* Verkleinere die Schriftgröße des Datums */
+            }
+        
+            .section {
+                padding: 30px 0; /* Verringere den Abstand in den Abschnitten */
+            }
+        
+            .container p {
+                font-size: 1em; /* Verkleinere den Text innerhalb der Container */
+                margin-bottom: 10px;
+            }
+        
+            ul {
+                font-size: 1em; /* Verkleinere den Text innerhalb der Listen */
+            }
+        
+            iframe {
+                max-width: 100%; /* Sorge dafür, dass die Karte nicht breiter als der Container ist */
+                height: auto; /* Skaliere die Höhe entsprechend */
+            }
+        
+            /* Setze den Text in der Navbar auf eine angemessene Größe */
+            .navbar-nav .nav-link {
+                font-size: 1em !important;
+            }
+        
+            /* Optional: Verkleinere den Platz zwischen den Navbar-Links */
+            .navbar-nav .nav-item {
+                margin: 0 5px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    
+    
+
+    <div class="startseite">
+        <div class="container">
+            <h1>Herzlich willkommen!</h1>
+            <p>Wir freuen uns, dich auf unserer Hochzeitsseite begrüßen zu dürfen.</p>
+            <div class="button-container">
+                <a class="button button-primary" href="/index/">Weiter</a>
+            </div>
+        </div>
+    
+        
+    </div>
+    
+
+    
+</body>
+</html>
