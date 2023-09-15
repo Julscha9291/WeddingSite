@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/Users/julian/Coding/django/mysite/rsvp/static/'
+STATIC_ROOT = '/static/'
 
 
 # Default primary key field type
