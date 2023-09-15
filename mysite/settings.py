@@ -123,7 +123,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/static/'
+# List of additional locations of static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Absolute filesystem path to the directory that will hold static files.
+STATIC_ROOT = BASE_DIR / 'static_root'
 
 
 # Default primary key field type
