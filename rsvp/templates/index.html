@@ -363,7 +363,7 @@
             <div class="container-fluid">
                 <h2>Abstimmung</h2>
                 <p>Bitte gib an, ob du an unserer Hochzeit teilnehmen wirst:</p>
-                <form action="{% url 'index' %}" method="post">
+                <form action="{% url '/index/' %}" method="post">
                     {% csrf_token %}
                     <label for="name">Dein Vor- und Nachname:</label>
                     <input type="text" id="name" name="name" required><br>
