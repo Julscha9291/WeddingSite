@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['1f63-2a03-f580-c852-a200-4c32-e579-ddde-d4ef.ngrok-free.app',
                  '127.0.0.1',
                  'julscha9291.pythonanywhere.com',
                  '192.168.178.40',
+                 '192.168.178.62',
                  'raspberry-pi.local', ]
 
 
