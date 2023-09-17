@@ -133,7 +133,7 @@ STATICFILES_DIRS = [
 ]
 
 # Absolute filesystem path to the directory that will hold static files.
-STATIC_ROOT = '/Users/julian/Coding/django/WeddingSite/rsvp/static'
+STATIC_ROOT = './WeddingSite/rsvp/static'
 
 
 # Default primary key field type
