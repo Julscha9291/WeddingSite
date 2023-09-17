@@ -133,7 +133,8 @@ STATICFILES_DIRS = [
 ]
 
 # Absolute filesystem path to the directory that will hold static files.
-STATIC_ROOT = './WeddingSite/rsvp/static'
+STATIC_ROOT = '/var/www/html/static/'
+
 
 
 # Default primary key field type
