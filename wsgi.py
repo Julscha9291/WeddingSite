@@ -5,7 +5,7 @@ import sys
 
 sys.path.append('/home/pi/WeddingSite') 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WeddingSite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 application = get_wsgi_application()
 
